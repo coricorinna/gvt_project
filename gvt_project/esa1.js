@@ -1,54 +1,55 @@
-window.onload = () => {
-    window.onkeydown = (event => {
-        if (event.key === 'r') {
-            clearContinuousRotation();
-            rotateImage(false);
-            return;
-        }
+var looper;
+var degrees = 0;
+function rotateAnimationStep(el,speed){
+	var elem = document.getElementById(el);
+	elem.style.transform = "rotate("+degrees+"deg)";
+	degrees ++;
+	if(degrees > 359){
+		degrees = 1;
+	}
+}
 
-        if(event.key === 'l') {
-            clearContinuousRotation();
-            rotateImage(true);
-            return;
-        }
+function rotateAnimationNegStep(el,speed){
+	var elem = document.getElementById(el);
+	elem.style.transform = "rotate("+degrees+"deg)";
+	degrees --;
+	if(degrees > 359){
+		degrees = 1;
+	}
+}
 
-        if(event.key === 'a') {
-            if(!rotatingInterval) {
-                rotateContinuously();
-                return;
-            }
+function rotateAnimation(el,speed){
+	var elem = document.getElementById(el);
+	elem.style.transform = "rotate("+degrees+"deg)";
+	looper = setTimeout('rotateAnimation(\''+el+'\','+speed+')',speed);
+	looper = ('rotateAnimation(\''+el+'\','+speed+')',speed);
+	degrees ++;
+	if(degrees > 359){
+		degrees = 1;
+	}
+}
 
-            clearContinuousRotation();
-        }
+function rotateAnimationStop(el,speed){
+	var elem = document.getElementById(el);
+	location.reload();
+}
 
-    })
+window.onkeydown = function(evt) {
 
-
-    const pizza = document.getElementById('pizza');
-    let pizzaDegree = 0;
-    let rotatingInterval = undefined;
-
-    const rotateImage = (inReverse) => {
-        const turnAmount = inReverse ? -36 : 36 ;
-        const degree = pizzaDegree || 360;
-        pizzaDegree = (degree + turnAmount) % 360;
-        pizza.src = getPizzaPath(pizzaDegree);
-    };
-
-    const clearContinuousRotation = () => {
-        clearInterval(rotatingInterval);
-        rotatingInterval = undefined;
-        pizza.src = getPizzaPath(pizzaDegree);
-    };
-
-    const getPizzaPath = (id) => {
-        return id || id === 0 ? `images/pizza-start${id}.png` : 'images/pizza-start.png';
-    };
-
-    const rotateContinuously = () => {
-        rotatingInterval = setInterval(() => {
-            rotateImage();
-        }, 100)
-    };
+	var key = evt.which ? evt.which : evt.keyCode;
+	var c = String.fromCharCode(key);
+	switch (c) {
+		case ('R'):
+			rotateAnimationStep("watermelon",0);
+			break;
+		case ('L'):
+			rotateAnimationNegStep("watermelon",0);
+			break;
+		case ('A'):
+			rotateAnimation("watermelon",0);
+			break;
+		case ('S'):
+			rotateAnimationStop("watermelon",0);
+			break;
+	}
 };
-

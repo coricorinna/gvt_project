@@ -5,7 +5,10 @@ body, html{
 
 main {
     margin-top: 20%;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: auto;
+    width: 80%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
     color: rgb(63, 64, 65);
 }
 
@@ -15,41 +18,61 @@ main {
 }
 
 header {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 35px;
     text-align: center;
     width: 100%;
     margin-bottom: 1em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    background-color: rgb(237, 241, 241);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: rgb(212, 212, 212);
 }
 
 #watermelon {
-    width: 25%;
-    margin-top: 4em;
+    width: 27%;
+    height: 27%;
+    float: left;
+    margin-top: 3em;
     margin-left: 5em;
-
 }
 
-#elephant {
-    width: 25%;
-    margin-top: 4em;
-    margin-right: 5em;
+.box:hover
+{
+    margin-top: 3em;
+    margin-bottom: 2em;
+    margin-left: 2em;
+    width: calc(1591px / 4);
+    height: 300px;
+    background: url(images/cat.png);
+    animation: animate 1s steps(4) infinite;
+}
+@keyframes animate{
+    from{
+        background-position: 0;
+    }
+    to{
+        background-position: -1591px;
+    }
+}
+
+.box
+{
+    margin-top: 3em;
+    margin-bottom: 2em;
+    margin-left: 2em;
+    width: calc(1591px / 4);
+    height: 300px;
+    background: url(images/cat.png);
+
 }
 
 #images {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    float:left;
 }
 
 footer {
     margin-top: 5em;
     text-align: center;
-}
-
-main {
-    margin: auto;
-    width: 80%;
 }

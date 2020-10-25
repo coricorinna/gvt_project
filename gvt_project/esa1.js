@@ -6,7 +6,8 @@ function rotateAnimationStep(el,speed){
 	degrees ++;
 	if(degrees > 359){
 		degrees = 1;
-	}
+    }
+    document.getElementById("status").innerHTML = "rotate("+degrees+"deg)";
 }
 
 function rotateAnimationNegStep(el,speed){
@@ -15,7 +16,8 @@ function rotateAnimationNegStep(el,speed){
 	degrees --;
 	if(degrees > 359){
 		degrees = 1;
-	}
+    }
+    document.getElementById("status").innerHTML = "rotate("+degrees+"deg)";
 }
 
 function rotateAnimation(el,speed){
@@ -26,12 +28,13 @@ function rotateAnimation(el,speed){
 	degrees ++;
 	if(degrees > 359){
 		degrees = 1;
-	}
+    }
+    document.getElementById("status").innerHTML = "rotate("+degrees+"deg)";
 }
 
 function rotateAnimationStop(el,speed){
 	var elem = document.getElementById(el);
-	location.reload();
+    location.reload();
 }
 
 window.onkeydown = function(evt) {
@@ -50,6 +53,6 @@ window.onkeydown = function(evt) {
 			break;
 		case ('S'):
 			rotateAnimationStop("watermelon",0);
-			break;
+            break;
 	}
 };

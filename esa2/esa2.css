@@ -18,7 +18,7 @@ header {
     margin-bottom: 1em;
     padding-top: 1em;
     padding-bottom: 1em;
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(192, 83, 147);
    
 }
 
@@ -31,6 +31,4 @@ div {
     padding: 0;
     margin: auto;
     display: block;
- /*   width: 50%;
-    height: 600px; */
 }
